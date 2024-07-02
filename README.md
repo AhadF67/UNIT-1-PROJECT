@@ -1,40 +1,30 @@
 # UNIT-1-PROJECT
 
+# Mashawyer: Errands Service
 
+# Overview
+Mashawyer is an errands service platform that connects users with drivers who can perform various tasks such as picking up laundry, grocery shopping, buying or returning items, and more. The platform supports Arabic/English languages and allows users to specify locations using short address. Users can describe tasks, provide pictures, manage their wallet for payments, and rate both drivers and services.
 
-## Based on what you’ve learned until now , create a project of your choosing (impress us with your imagination) . This project must at least satisfy the following minimum requirements :
+# User Stories
 
-- Must be interactive on CLI.
-- Use your coding skills in Python accurately.
-- Organize Your Code into modules & (or packages)
+# As a User:
+- Sign Up/Login: Create an account or log in using a mobile number and password.
+- Browse Services: View available services and select the one needed.
+- Add Location: Add and manage locations with short address for pickup and drop-off points.
+- Describe Tasks: Provide detailed descriptions of the tasks to be performed.
+- Provide Pictures: Upload pictures related to the task for better clarity.
+- Manage Wallet: Add funds to the wallet, and authorize payments upon receipt confirmation.
+- Rate Services: Rate drivers and services after task completion.
+- Check Status: View the status of ongoing errands.
 
-## Example Project :  An online Grocery Store :
+# As a Driver:
+- Sign Up/Login: Create an account or log in using a mobile number and password.
+- View Tasks: See a list of available tasks and accept the ones that fit their schedule.
+- Update Status: Update the status of the task in real-time.
+- Provide Receipts: Upload receipts and await confirmation from users before withdrawing funds.
+- Rate Users: Rate the users after completing the task.
 
-#### Overview : An online store that sells fruits to customers. This online store has 2 main users. The customer and the manager of the store . Each one of them should be able to do the following tasks for the store to function properly . 
-
-#### As a customer I should be able to do the following :
-- Browse  Products . 
-- View the product info (summary, specs, price, quantity , etc.)
-- Search for Products.
-- Get recommendations for my next purchase based on my purchase history.
-- Add Products to the shopping cart .
-- Remove a product from the shopping cart.
-- List the products in my shopping cart. 
-- Continue to checkout . 
-- Fill in my address for delivery.
-- Get receipt of my purchases.
-- Check delivery status . 
-
-
-
-#### Usage :
- Explain to the user how to use your project . 
- for example:
- - type in search product_name to search for a product.
- - type in list_products to show all the products in the grocery.
- - type in show product_name to get information about this product.
- - type in buy product_name to buy the product . 
- - and so on...
-
-
-### For your project. Edit this README.md file to include your own project name,  overview, user stories, and usage. 
+# As a Manager:
+- Oversee Profiles: Manage profiles of users and drivers.
+- Technical Support: Provide support and resolve issues.
+- Monitor Transactions: Keep track of all transactions and ensure smooth operation.
