@@ -1,1 +1,0 @@
-{"mobiles": ["0548523105"], "drivers": {"0548523105": {"name": "Ramez", "password": "123"}}}
