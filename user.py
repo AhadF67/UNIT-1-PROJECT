@@ -6,8 +6,7 @@ from manager import load_services, save_complaints
 mobiles, users = load_users_data()
 
 class User:
-    def __init__(self, name, mobile, password):
-        self.name = name
+    def __init__(self, mobile, password):
         self.mobile = mobile
         self.password = password
         self.balance = 0
@@ -16,11 +15,11 @@ class User:
         self.services = []
 
     @staticmethod
-    def signup(name, mobile, password):
+    def signup(mobile, password):
         global users
         if mobile in users:
             raise ValueError("Mobile number already registered.")
-        users[mobile] = {'name': name, 'password': password}
+        users[mobile] = {'password': password}
         mobiles.add(mobile)
         save_users_data(mobiles, users)
         print(Fore.GREEN + "You have registered as User successfully!")
@@ -83,7 +82,7 @@ class User:
                 description = input("Enter service description: ")
                 order_data = {'service': services[num - 1], 'description': description, 'status': 'pending'}
                 save_order(order_data)
-                print(Fore.GREEN + "Service requested successfully.")
+                print(Fore.GREEN + "\nService requested successfully.")
             else:
                 print(Fore.RED + "Invalid service number!")
         except ValueError:
@@ -96,14 +95,14 @@ class User:
 
     def user_en_menu(self):
         while True:
-            print(Fore.WHITE+"--------------------------------------")
+            print(Fore.WHITE+"\n--------------------------------------")
             print("\tMashawyer User")
             print("--------------------------------------")
             print("1. Services")
             print("2. Wallet")
             print("3. Complain")
             print("4. Exit")
-            print("--------------------------------------")
+            print("--------------------------------------\n")
 
             choice = input(Fore.LIGHTMAGENTA_EX+"Choose number: ")
             if not choice.isdigit():
@@ -118,7 +117,7 @@ class User:
             elif choice == 3:
                 self.complain()
             elif choice == 4:
-                print(Fore.WHITE+"Thank you for using Mashawyer, See you soon!")
+                print(Fore.WHITE+"\nThank you for using Mashawyer, See you soon!")
                 exit()
             else:
                 print(Fore.RED + "Invalid choice!")

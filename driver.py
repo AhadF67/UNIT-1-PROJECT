@@ -6,8 +6,7 @@ from manager import save_complaints
 mobiles, drivers = load_drivers_data()
 
 class Driver:
-    def __init__(self, name, mobile, password):
-        self.name = name
+    def __init__(self,  mobile, password):
         self.mobile = mobile
         self.password = password
         self.balance = 0
@@ -15,18 +14,18 @@ class Driver:
         self.orders = []
 
     @staticmethod
-    def signup(name, mobile, password):
+    def signup( mobile, password):
         global drivers
         if mobile in drivers:
             raise ValueError("Mobile number already registered.")
-        drivers[mobile] = {'name': name, 'password': password}
+        drivers[mobile] = {'password': password}
         mobiles.add(mobile)
         save_drivers_data(mobiles, drivers)
         print(Fore.GREEN + "You have registered as Driver successfully!")
 
     def wallet(self):
         while True:
-            print(Fore.WHITE+"1. See Current Balance")
+            print(Fore.WHITE+"\n1. See Current Balance")
             print("2. Request Money")
             #print("3. Show Transactions")
             #print("4. Pay Bill")
@@ -59,7 +58,7 @@ class Driver:
             description = input("Enter description: ")
             request_data = {'amount': amount, 'description': description, 'status': 'pending'}
             save_request(request_data)
-            print(Fore.GREEN + "Request submitted successfully.")
+            print(Fore.GREEN + "\nRequest submitted successfully.")
         except ValueError as e:
             print(Fore.RED + str(e))
 
@@ -102,7 +101,7 @@ class Driver:
         try:
             num = int(input(Fore.YELLOW+"Choose order number to update: "))
             if 1 <= num <= len(orders):
-                print(Fore.WHITE+"1. Accepted")
+                print(Fore.WHITE+"\n1. Accepted")
                 print("2. In Progress")
                 print("3. Finished")
                 status_choice = int(input(Fore.YELLOW+"Choose status number: "))
@@ -117,7 +116,7 @@ class Driver:
                     return
                 orders[num - 1]['status'] = new_status
                 update_orders(orders)
-                print(Fore.GREEN + f"Order #{num} status updated to {new_status}.")
+                print(Fore.GREEN + f"\nOrder #{num} status updated to {new_status}.")
             else:
                 print(Fore.RED + "Invalid order number!")
         except ValueError:
@@ -131,7 +130,7 @@ class Driver:
 
     def driver_en_menu(self):
         while True:
-            print(Fore.WHITE+"--------------------------------------")
+            print(Fore.WHITE+"\n--------------------------------------")
             print("\tMashawyer Driver")
             print("--------------------------------------")
             print("1. Orders")
@@ -153,7 +152,7 @@ class Driver:
             elif choice == 3:
                 self.complain()
             elif choice == 4:
-                print(Fore.WHITE+"Thank you for using Mashawyer, See you soon!")
+                print(Fore.WHITE+"\nThank you for using Mashawyer, See you soon!")
                 exit()
             else:
                 print(Fore.RED + "Invalid choice!")

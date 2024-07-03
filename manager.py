@@ -11,13 +11,13 @@ class Manager:
         service_name = input(Fore.LIGHTBLUE_EX + "Enter service name: ")
         services.append(service_name)
         save_services(services)
-        print(Fore.GREEN + "Service added successfully!")
+        print(Fore.GREEN + "\nService added successfully!")
 
     @staticmethod
     def answ_complains():
         complaints = load_complaints()
         if not complaints:
-            print(Fore.RED + "No complaints to answer.")
+            print(Fore.RED + "\nNo complaints to answer.")
             return
 
         for idx, complaint in enumerate(complaints, 1):

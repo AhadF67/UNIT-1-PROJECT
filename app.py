@@ -32,7 +32,7 @@ def main():
         if password == "admin":
             manager = Manager()
             while True:
-                print(Fore.WHITE + "1. Add Service")
+                print(Fore.WHITE + "\n1. Add Service")
                 print("2. Answer Complaints")
                 print("3. Exit")
                 choice = input("Choose number: ")
@@ -41,7 +41,7 @@ def main():
                 elif choice == '2':
                     manager.answ_complains()
                 elif choice == '3':
-                    print(Fore.WHITE+"Thank you for managing Mashawyer, See you soon!")
+                    print(Fore.WHITE+"\nThank you for managing Mashawyer, See you soon!")
                     break
                 else:
                     print(Fore.RED + "Invalid choice!")
