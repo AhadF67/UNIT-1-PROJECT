@@ -20,12 +20,12 @@ def main():
     if role_choice == '1':
         mobile = input(Fore.LIGHTMAGENTA_EX+"Enter your mobile number: ")
         password = input( "Enter your password: ")
-        user = User(name, mobile, password)
+        user = User( mobile, password)
         user.user_en_menu()
     elif role_choice == '2': 
         mobile = input(Fore.YELLOW+"Enter your mobile number: ")
         password = input("Enter your password: ")
-        driver = Driver(name, mobile, password)
+        driver = Driver(mobile, password)
         driver.driver_en_menu()
     elif role_choice == '3':
         password = input(Fore.LIGHTBLUE_EX+"Enter Manager password: ")
