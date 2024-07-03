@@ -22,17 +22,17 @@ class Driver:
         drivers[mobile] = {'name': name, 'password': password}
         mobiles.add(mobile)
         save_drivers_data(mobiles, drivers)
-        print(Fore.GREEN + "You have registered as " + Fore.YELLOW + "Driver" + Fore.GREEN + " successfully!")
+        print(Fore.GREEN + "You have registered as Driver successfully!")
 
     def wallet(self):
         while True:
-            print(Fore.YELLOW + f"Your current balance: {self.balance}SR")
+            print(f"Your current balance: {self.balance}SR")
             print("1. See Current Balance")
             print("2. Request Money")
             print("3. Show Transactions")
             print("4. Pay Bill")
             print("5. << ")
-            choice = input(Fore.YELLOW + "Choose number: ")
+            choice = input("Choose number: ")
 
             if not choice.isdigit():
                 print(Fore.RED + "Invalid choice!")
@@ -40,7 +40,7 @@ class Driver:
 
             choice = int(choice)
             if choice == 1:
-                print(Fore.YELLOW + f"Your current balance: {self.balance}SR")
+                print(f"Your current balance: {self.balance}SR")
             elif choice == 2:
                 self.request_money()
             elif choice == 3:
@@ -54,10 +54,10 @@ class Driver:
 
     def request_money(self):
         try:
-            amount = float(input(Fore.YELLOW + "Enter request amount: "))
+            amount = float(input( "Enter request amount: "))
             if amount <= 0:
                 raise ValueError("Amount must be positive.")
-            description = input(Fore.YELLOW + "Enter description: ")
+            description = input("Enter description: ")
             request_data = {'amount': amount, 'description': description, 'status': 'pending'}
             save_request(request_data)
             print(Fore.GREEN + "Request submitted successfully.")
@@ -74,12 +74,12 @@ class Driver:
 
     def pay_bill(self):
         try:
-            bill_amount = float(input(Fore.YELLOW + "Enter bill amount: "))
+            bill_amount = float(input("Enter bill amount: "))
             if bill_amount <= 0:
                 raise ValueError("Bill amount must be positive.")
             if self.balance >= bill_amount:
                 self.balance -= bill_amount
-                print(Fore.GREEN + f"Bill paid successfully! " + Fore.YELLOW + f"Your current balance: {self.balance}SR")
+                print(Fore.GREEN + f"Bill paid successfully! Your current balance: {self.balance}SR")
             else:
                 print(Fore.RED + "Insufficient balance to pay the bill.")
         except ValueError as e:
@@ -101,12 +101,12 @@ class Driver:
                 print(Fore.RED + f"Order {idx} is missing key: {e}")
 
         try:
-            num = int(input(Fore.YELLOW + "Choose order number to update: "))
+            num = int(input("Choose order number to update: "))
             if 1 <= num <= len(orders):
                 print("1. Accepted")
                 print("2. In Progress")
                 print("3. Finished")
-                status_choice = int(input(Fore.YELLOW + "Choose status number: "))
+                status_choice = int(input("Choose status number: "))
                 if status_choice == 1:
                     new_status = 'accepted'
                 elif status_choice == 2:
@@ -126,7 +126,7 @@ class Driver:
 
 
     def complain(self):
-        complaint = input(Fore.YELLOW + "Enter your complaint: ")
+        complaint = input("Enter your complaint: ")
         save_complaints(complaint)
         print(Fore.GREEN + "Complaint registered successfully.")
 
@@ -141,7 +141,7 @@ class Driver:
             print("4. Exit")
             print("--------------------------------------")
 
-            choice = input(Fore.YELLOW + "Choose number: ")
+            choice = input( "Choose number: ")
             if not choice.isdigit():
                 print(Fore.RED + "Invalid choice!")
                 continue
@@ -154,7 +154,7 @@ class Driver:
             elif choice == 3:
                 self.complain()
             elif choice == 4:
-                print(Fore.YELLOW + "Thank you for using Mashawyer, See you soon!")
+                print("Thank you for using Mashawyer, See you soon!")
                 exit()
             else:
                 print(Fore.RED + "Invalid choice!")

@@ -23,16 +23,16 @@ class User:
         users[mobile] = {'name': name, 'password': password}
         mobiles.add(mobile)
         save_users_data(mobiles, users)
-        print(Fore.GREEN + "You have registered as " + Fore.YELLOW + "User" + Fore.GREEN + " successfully!")
+        print(Fore.GREEN + "You have registered as User successfully!")
 
     def wallet(self):
         while True:
-            print(Fore.YELLOW + f"Your current balance: {self.balance}SR")
+            print(f"Your current balance: {self.balance}SR")
             print("1. See Current Balance")
             print("2. Add Money")
             print("3. Show Transactions")
             print("4. << ")
-            choice = input(Fore.YELLOW + "Choose number: ")
+            choice = input("Choose number: ")
 
             if not choice.isdigit():
                 print(Fore.RED + "Invalid choice!")
@@ -40,7 +40,7 @@ class User:
 
             choice = int(choice)
             if choice == 1:
-                print(Fore.YELLOW + f"Your current balance: {self.balance}SR")
+                print(f"Your current balance: {self.balance}SR")
             elif choice == 2:
                 self.add_money()
             elif choice == 3:
@@ -76,12 +76,12 @@ class User:
             return
 
         for idx, service in enumerate(services, 1):
-            print(Fore.YELLOW + f"{idx}. {service}")
+            print(f"{idx}. {service}")
 
         try:
-            num = int(input(Fore.YELLOW + "Choose service number to request: "))
+            num = int(input( "Choose service number to request: "))
             if 1 <= num <= len(services):
-                description = input(Fore.YELLOW + "Enter service description: ")
+                description = input("Enter service description: ")
                 order_data = {'service': services[num - 1], 'description': description, 'status': 'pending'}
                 save_order(order_data)
                 print(Fore.GREEN + "Service requested successfully.")
@@ -91,7 +91,7 @@ class User:
             print(Fore.RED + "Invalid input! Please enter a number.")
 
     def complain(self):
-        complaint = input(Fore.YELLOW + "Enter your complaint: ")
+        complaint = input( "Enter your complaint: ")
         save_complaints(complaint)
         print(Fore.GREEN + "Complaint registered successfully.")
 
@@ -106,7 +106,7 @@ class User:
             print("4. Exit")
             print("--------------------------------------")
 
-            choice = input(Fore.YELLOW + "Choose number: ")
+            choice = input("Choose number: ")
             if not choice.isdigit():
                 print(Fore.RED + "Invalid choice!")
                 continue
@@ -119,7 +119,7 @@ class User:
             elif choice == 3:
                 self.complain()
             elif choice == 4:
-                print(Fore.YELLOW + "Thank you for using Mashawyer, See you soon!")
+                print("Thank you for using Mashawyer, See you soon!")
                 exit()
             else:
                 print(Fore.RED + "Invalid choice!")
