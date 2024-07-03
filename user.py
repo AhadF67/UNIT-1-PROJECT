@@ -96,7 +96,7 @@ class User:
 
     def user_en_menu(self):
         while True:
-            print("--------------------------------------")
+            print(Fore.WHITE+"--------------------------------------")
             print("\tMashawyer User")
             print("--------------------------------------")
             print("1. Services")
@@ -105,7 +105,7 @@ class User:
             print("4. Exit")
             print("--------------------------------------")
 
-            choice = input("Choose number: ")
+            choice = input(Fore.LIGHTMAGENTA_EX+"Choose number: ")
             if not choice.isdigit():
                 print(Fore.RED + "Invalid choice!")
                 continue

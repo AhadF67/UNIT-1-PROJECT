@@ -26,12 +26,12 @@ class Driver:
 
     def wallet(self):
         while True:
-            print(Fore.YELLOW+"1. See Current Balance")
+            print(Fore.WHITE+"1. See Current Balance")
             print("2. Request Money")
-            print("3. Show Transactions")
-            print("4. Pay Bill")
-            print("5. << ")
-            choice = input("Choose number: ")
+            #print("3. Show Transactions")
+            #print("4. Pay Bill")
+            print("3. << ")
+            choice = input(Fore.YELLOW+"Choose number: ")
 
             if not choice.isdigit():
                 print(Fore.RED + "Invalid choice!")
@@ -42,11 +42,11 @@ class Driver:
                 print(f"Your current balance: {self.balance}SR")
             elif choice == 2:
                 self.request_money()
+            #elif choice == 3:
+                #self.check_transactions()
+            #elif choice == 4:
+                #self.pay_bill()
             elif choice == 3:
-                self.check_transactions()
-            elif choice == 4:
-                self.pay_bill()
-            elif choice == 5:
                 break
             else:
                 print(Fore.RED + "Invalid choice!")
@@ -95,17 +95,17 @@ class Driver:
                 service = order['service']
                 description = order['description']
                 status = order['status']
-                print(Fore.YELLOW + f"{idx}. Service: {service}, Description: {description}, Status: {status}")
+                print(Fore.WHITE + f"{idx}. Service: {service}, Description: {description}, Status: {status}")
             except KeyError as e:
                 print(Fore.RED + f"Order {idx} is missing key: {e}")
 
         try:
-            num = int(input("Choose order number to update: "))
+            num = int(input(Fore.YELLOW+"Choose order number to update: "))
             if 1 <= num <= len(orders):
-                print("1. Accepted")
+                print(Fore.WHITE+"1. Accepted")
                 print("2. In Progress")
                 print("3. Finished")
-                status_choice = int(input("Choose status number: "))
+                status_choice = int(input(Fore.YELLOW+"Choose status number: "))
                 if status_choice == 1:
                     new_status = 'accepted'
                 elif status_choice == 2:
@@ -125,13 +125,13 @@ class Driver:
 
 
     def complain(self):
-        complaint = input("Enter your complaint: ")
+        complaint = input(Fore.YELLOW+"Enter your complaint: ")
         save_complaints(complaint)
         print(Fore.GREEN + "Complaint registered successfully.")
 
     def driver_en_menu(self):
         while True:
-            print("--------------------------------------")
+            print(Fore.WHITE+"--------------------------------------")
             print("\tMashawyer Driver")
             print("--------------------------------------")
             print("1. Orders")
@@ -140,7 +140,7 @@ class Driver:
             print("4. Exit")
             print("--------------------------------------")
 
-            choice = input( "Choose number: ")
+            choice = input( Fore.YELLOW+"Choose number: ")
             if not choice.isdigit():
                 print(Fore.RED + "Invalid choice!")
                 continue
@@ -153,7 +153,7 @@ class Driver:
             elif choice == 3:
                 self.complain()
             elif choice == 4:
-                print("Thank you for using Mashawyer, See you soon!")
+                print(Fore.WHITE+"Thank you for using Mashawyer, See you soon!")
                 exit()
             else:
                 print(Fore.RED + "Invalid choice!")
