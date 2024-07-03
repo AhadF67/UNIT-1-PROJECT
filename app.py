@@ -30,11 +30,11 @@ def main():
         driver = Driver(name, mobile, password)
         driver.driver_en_menu()
     elif role_choice == '3':
-        password = input("Enter Manager password: ")
+        password = input(Fore.LIGHTBLUE_EX+"Enter Manager password: ")
         if password == "admin":
             manager = Manager()
             while True:
-                print(Fore.CYAN + "1. Add Service")
+                print(Fore.WHITE + "1. Add Service")
                 print("2. Answer Complaints")
                 print("3. Exit")
                 choice = input("Choose number: ")
