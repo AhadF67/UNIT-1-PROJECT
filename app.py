@@ -18,14 +18,12 @@ def main():
         return
 
     if role_choice == '1':
-        name = input(Fore.LIGHTMAGENTA_EX+"Enter your name: ")
-        mobile = input("Enter your mobile number: ")
+        mobile = input(Fore.LIGHTMAGENTA_EX+"Enter your mobile number: ")
         password = input( "Enter your password: ")
         user = User(name, mobile, password)
         user.user_en_menu()
-    elif role_choice == '2':
-        name = input( Fore.YELLOW+"Enter your name: ")
-        mobile = input("Enter your mobile number: ")
+    elif role_choice == '2': 
+        mobile = input(Fore.YELLOW+"Enter your mobile number: ")
         password = input("Enter your password: ")
         driver = Driver(name, mobile, password)
         driver.driver_en_menu()
