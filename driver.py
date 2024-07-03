@@ -26,8 +26,7 @@ class Driver:
 
     def wallet(self):
         while True:
-            print(f"Your current balance: {self.balance}SR")
-            print("1. See Current Balance")
+            print(Fore.YELLOW+"1. See Current Balance")
             print("2. Request Money")
             print("3. Show Transactions")
             print("4. Pay Bill")
@@ -54,7 +53,7 @@ class Driver:
 
     def request_money(self):
         try:
-            amount = float(input( "Enter request amount: "))
+            amount = float(input( Fore.YELLOW+"Enter request amount: "))
             if amount <= 0:
                 raise ValueError("Amount must be positive.")
             description = input("Enter description: ")

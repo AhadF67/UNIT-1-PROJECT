@@ -27,8 +27,7 @@ class User:
 
     def wallet(self):
         while True:
-            print(f"Your current balance: {self.balance}SR")
-            print("1. See Current Balance")
+            print(Fore.WHITE+"1. See Current Balance")
             print("2. Add Money")
             print("3. Show Transactions")
             print("4. << ")
@@ -40,7 +39,7 @@ class User:
 
             choice = int(choice)
             if choice == 1:
-                print(f"Your current balance: {self.balance}SR")
+                print(Fore.WHITE+f"Your current balance: {self.balance}SR")
             elif choice == 2:
                 self.add_money()
             elif choice == 3:
@@ -52,7 +51,7 @@ class User:
 
     def add_money(self):
         try:
-            amount = float(input(Fore.YELLOW + "Enter amount to add: "))
+            amount = float(input(Fore.LIGHTMAGENTA_EX + "Enter amount to add: "))
             if amount <= 0:
                 raise ValueError("Amount must be positive.")
             self.balance += amount
@@ -79,7 +78,7 @@ class User:
             print(f"{idx}. {service}")
 
         try:
-            num = int(input( "Choose service number to request: "))
+            num = int(input( Fore.LIGHTMAGENTA_EX+"Choose service number to request: "))
             if 1 <= num <= len(services):
                 description = input("Enter service description: ")
                 order_data = {'service': services[num - 1], 'description': description, 'status': 'pending'}
@@ -91,7 +90,7 @@ class User:
             print(Fore.RED + "Invalid input! Please enter a number.")
 
     def complain(self):
-        complaint = input( "Enter your complaint: ")
+        complaint = input(Fore.LIGHTMAGENTA_EX+ "Enter your complaint: ")
         save_complaints(complaint)
         print(Fore.GREEN + "Complaint registered successfully.")
 
@@ -119,7 +118,7 @@ class User:
             elif choice == 3:
                 self.complain()
             elif choice == 4:
-                print("Thank you for using Mashawyer, See you soon!")
+                print(Fore.WHITE+"Thank you for using Mashawyer, See you soon!")
                 exit()
             else:
                 print(Fore.RED + "Invalid choice!")

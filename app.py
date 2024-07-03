@@ -4,10 +4,10 @@ from driver import Driver
 from manager import Manager
 
 def main():
-    print("--------------------------------------")
+    print(Fore.WHITE+"--------------------------------------")
     print("\tWelcome to Mashawyer")
     print("--------------------------------------")
-    print(Fore.CYAN + "1. User")
+    print("1. User")
     print("2. Driver")
     print("3. Manager")
     print("--------------------------------------")
@@ -18,33 +18,35 @@ def main():
         return
 
     if role_choice == '1':
-        name = input(Fore.CYAN + "Enter your name: ")
+        name = input(Fore.LIGHTMAGENTA_EX+"Enter your name: ")
         mobile = input("Enter your mobile number: ")
         password = input( "Enter your password: ")
         user = User(name, mobile, password)
         user.user_en_menu()
     elif role_choice == '2':
-        name = input( "Enter your name: ")
+        name = input( Fore.YELLOW+"Enter your name: ")
         mobile = input("Enter your mobile number: ")
         password = input("Enter your password: ")
         driver = Driver(name, mobile, password)
         driver.driver_en_menu()
     elif role_choice == '3':
-        manager = Manager()
-        while True:
-            print(Fore.CYAN + "1. Add Service")
-            print("2. Answer Complaints")
-            print("3. Exit")
-            choice = input("Choose number: ")
-            if choice == '1':
-                manager.add_service()
-            elif choice == '2':
-                manager.answ_complains()
-            elif choice == '3':
-                print("Thank you for managing Mashawyer, See you soon!")
-                break
-            else:
-                print(Fore.RED + "Invalid choice!")
+        password = input("Enter Manager password: ")
+        if password == "admin":
+            manager = Manager()
+            while True:
+                print(Fore.CYAN + "1. Add Service")
+                print("2. Answer Complaints")
+                print("3. Exit")
+                choice = input("Choose number: ")
+                if choice == '1':
+                    manager.add_service()
+                elif choice == '2':
+                    manager.answ_complains()
+                elif choice == '3':
+                    print(Fore.WHITE+"Thank you for managing Mashawyer, See you soon!")
+                    break
+                else:
+                    print(Fore.RED + "Invalid choice!")
 
 if __name__ == "__main__":
     main()
